@@ -4,6 +4,7 @@
   "icon": "valueclock.png",
   "version":"0.01",
   "description": "A clock with different values",
+  "type": "clock",
   "tags": "",
   "allow_emulator":true, 
   "supports": ["BANGLEJS", "BANGLEJS2"],
