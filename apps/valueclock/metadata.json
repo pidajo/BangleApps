@@ -1,0 +1,16 @@
+{ "id": "valueclock",
+  "name": "Value Clock",
+  "shortName":"Value Clock",
+  "icon": "valueclock.png",
+  "version":"0.01",
+  "description": "A clock with different values",
+  "tags": "",
+  "allow_emulator":true, 
+  "supports": ["BANGLEJS", "BANGLEJS2"],
+  "readme":"README.md",
+  "screenshots" : [ { "url":"screenshot.png" }, { "url":"screenshot_altitude.png" }, { "url":"screenshot_steps.png" } ],
+  "storage": [
+    {"name":"valueclock.app.js","url":"app.js"},
+    {"name":"valueclock.img","url":"valueclock-icon.js","evaluate":true}
+  ]
+}
