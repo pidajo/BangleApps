@@ -588,6 +588,9 @@ function loadSettings() {
   var settings = 
       require("Storage").readJSON(settingsFileName);
   //console.log(settings);
+  if (!settings) {
+    return;
+  }
   valueIndex = settings.valueIndex;
   lastGPS = settings.lastGPS;
   altShift = settings.altShift;
@@ -680,4 +683,4 @@ require("Storage").write("valueclock.info",{
   "src":"valueclock.app.js",
   "icon":"valueclock.img"
 });
-*/
+/**/
