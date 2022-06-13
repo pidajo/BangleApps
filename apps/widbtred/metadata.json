@@ -3,7 +3,6 @@
   "name": "Bluetooth Widget",
   "version": "0.01",
   "description": "Show the current Bluetooth connection status in the top right, unconnected with red background",
-  "icon": "widget.png",
   "type": "widget",
   "tags": "widget,bluetooth",
   "supports": ["BANGLEJS","BANGLEJS2"],
