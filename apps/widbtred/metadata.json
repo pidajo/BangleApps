@@ -4,7 +4,7 @@
   "version": "0.01",
   "description": "Show the current Bluetooth connection status in the top right, unconnected with red background",
   "type": "widget",
-  "icon": "widget.png"
+  "icon": "widget.png",
   "tags": "widget,bluetooth",
   "supports": ["BANGLEJS","BANGLEJS2"],
   "storage": [
