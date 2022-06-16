@@ -33,7 +33,7 @@ if (!global.WIDGETS) {
       g.setColor(g.theme.fg).fillRect(x,y+2,x+s-4,y+21).clearRect(x+2,y+4,x+s-6,y+19).fillRect(x+s-3,y+10,x+s,y+14);
       g.setColor("#0f0");
       var bat = E.getBattery();
-      bat = 10;
+      //bat = 10;
       /*
       if (bat < 40) {
         var c = bat - 15;
