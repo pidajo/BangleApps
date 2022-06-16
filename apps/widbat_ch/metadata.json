@@ -1,6 +1,6 @@
 {
   "id": "widbat_ch",
-  "name": "Battery Level Widget with different colors",
+  "name": "Battery Level Widget (with different colors)",
   "version": "0.01",
   "description": "Show the current battery level (horizontal) in the top right of the clock with different colors",
   "icon": "widget.png",
