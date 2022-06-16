@@ -1,1 +1,13 @@
-
+{
+  "id": "widbat_ch",
+  "name": "Battery Level Widget (horizontal) with different colors",
+  "version": "0.01",
+  "description": "Show the current battery level in the top right of the clock with different colors",
+  "icon": "widget.png",
+  "type": "widget",
+  "tags": "widget,battery",
+  "supports": ["BANGLEJS","BANGLEJS2"],
+  "storage": [
+    {"name":"widbat_ch.wid.js","url":"widget.js"}
+  ]
+}
