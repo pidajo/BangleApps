@@ -23,21 +23,23 @@ function GB(msg) {
 
 function setAGPS(data) {
   var js = jsFromBase64(data);
-  console.log(js);
+  Bangle.setGPSPower(true, "agpsdata");
   try {
     eval(js);
+    Bangle.setGPSPower(false, "agpsdata");
     return true;
   }
   catch(e) {
     console.log("Error:", e);
   }
+  Bangle.setGPSPower(false, "agpsdata");
   return false;
 }
 
 function jsFromBase64(b64) {
   var bin = atob(b64);
   var chunkSize = 128;
-  var js = "Bangle.setGPSPower(1);\n"; // turn GPS on
+  var js = ""; //"Bangle.setGPSPower(1);\n"; // turn GPS on
   var gnss_select="1";
   js += `Serial1.println("${CASIC_CHECKSUM("$PCAS04,"+gnss_select)}")\n`; // set GNSS mode
   // What about:
