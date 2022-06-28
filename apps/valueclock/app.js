@@ -141,7 +141,7 @@ function getAltitude() {
     if (altShift) {
       alt += altShift.shift;
     }
-    return require('locale').distance(parseInt(alt)); 
+    return parseInt(alt) + "m"; 
   }
   return "--m";
 }
@@ -165,7 +165,7 @@ function calibrateAltitude() {
       saveSettings();
     });
   };
-  if (lastGPS || Date.now() - lastGPS.created < 30000) {
+  if (lastGPS && lastGPS.created && Date.now() - lastGPS.created < 30000) {
     calibrate();
   }
   else {
@@ -212,9 +212,25 @@ function stopAltitude() {
 }
 
 function touchAltitude() {
-  if (!altShift || Date.now() - altShift.created > 1800000) {
-    calibrateAltitude();
-  }
+  stopAltitude();
+  var clearTimer = setTimeout(() => {
+    console.log("Cleared");
+    E.showPrompt();
+    startAltitude();
+  }, 10000);
+  E.showPrompt("Calibrate?", 
+    {title: "Baro Altitude"}
+  ).then(function(v) {
+    console.log("After Prompt:" + v);
+    if (v) {
+      if (!altShift || Date.now() - altShift.created > 1800000) {
+        calibrateAltitude();
+      }
+    }
+    clearTimeout(clearTimer);
+    E.showPrompt();
+    startAltitude();
+  });  
 }
 
 var basePressure = null;
@@ -246,10 +262,27 @@ function stopAltitudeDiff() {
 }
 
 function touchAltitudeDiff() {
-  if (pressure) {
-    basePressure = pressure;
-  }
-  redraw();
+  queueClear();
+  var clearTimer = setTimeout(() => {
+    console.log("Cleared");
+    E.showPrompt();
+    redraw();
+    queueDraw(1000);
+  }, 10000);
+  E.showPrompt("Reset to 0?", 
+    {title: "Altitude Diff"}
+  ).then(function(v) {
+    console.log("After Prompt:" + v);
+    if (v) {
+      if (pressure) {
+        basePressure = pressure;
+      }
+    }
+    clearTimeout(clearTimer);
+    E.showPrompt();
+    redraw();
+    queueDraw(1000);
+  });
 }
 
 function getTemp() {
